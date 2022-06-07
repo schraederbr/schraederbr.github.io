@@ -1,40 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-
-    <py-env>
-        - matplotlib
-        - numpy
-        - requests
-        - python-dotenv
-        - paths:
-            - ./SpotifyFunctions.py
-            - ./spotipy
-            - ./spotipy/__init__.py
-            - ./spotipy/cache_handler.py
-            - ./spotipy/client.py
-            - ./spotipy/exceptions.py
-            - ./spotipy/oauth2.py
-            - ./spotipy/util.py
-            - ./exceptions.py
-
-
-    </py-env>
-</head>
-
-<body>
-    <h1>Matplotlib</h1>
-    <div id="lineplot">
-        <py-script src="index.py">
-            # requires SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI
+# requires SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI
 # in environment variables.
 # SPOTIPY_REDIRECT_URI must be: https://schraederbr.github.io/
 # SPOTIPY_REDIRECT_URI
@@ -192,10 +156,3 @@ def command_line_input():
         print(e)
         print("\nError occured. Restarting Application\n")
         command_line_input()
-
-        </py-script>
-    </div>
-    <py-script> print("PLSES WORK")</py-script>
-</body>
-
-</html>
