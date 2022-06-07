@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - matplotlib
+        - numpy
+    </py-env>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <h1>Matplotlib</h1>
+    <div id="lineplot">
+        <py-script src="test.py">
+        </py-script>
+    </div>
+    <py-script> print("PLSES WORK")</py-script>
 </body>
+
 </html>
