@@ -9,33 +9,29 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
 </head>
 <py-env>
     - matplotlib
     - numpy
-    - requests
     - python-dotenv
+    - micropip
+    - requests-2.26.0-py3-none-any.whl
 </py-env>
 </head>
 
 <body>
     <h1>Matplotlib</h1>
-    <div id="lineplot">
-        <py-script src="matplot.py">
+    <div>
+        <py-script>
+            import requests
+            print("Attempted Requesets")
+            url = 'https://jsonplaceholder.typicode.com/posts'
+            response = requests.request("GET", url)
+            print(response.text)
+
         </py-script>
     </div>
     <py-script> print("PLSES WORK")</py-script>
-    <script type="text/javascript">
-        async function main() {
-            let pyodide = await loadPyodide();
-            console.log(pyodide.runPython(`
-              import sys
-              sys.version
-          `));
-            console.log(pyodide.runPython("print(1 + 2)"));
-        }
-        main();
     </script>
 </body>
 

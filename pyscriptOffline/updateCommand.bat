@@ -1,0 +1,1 @@
+Powershell foreach ($ext in "css", "js", "py") {wget "https://pyscript.net/alpha/pyscript.$ext" -o "pyscript.$ext"}
