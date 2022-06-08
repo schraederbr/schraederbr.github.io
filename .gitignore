@@ -1,2 +1,5 @@
 *.env
 /pyodide/*
+/build/*
+/requests*/*
+/dist*
