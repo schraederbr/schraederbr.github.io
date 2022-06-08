@@ -20,12 +20,7 @@
 <body>
     <h1>Matplotlib</h1>
     <div id="lineplot">
-        <py-script>
-            from pyodide.http import pyfetch
-            import asyncio
-            response = await pyfetch(url="https://jsonplaceholder.typicode.com/todos/1", method="GET")
-            output = f"GET request=> status:{response.status}, json:{await response.json()}"
-            print(output)
+        <py-script src="index.py">
         </py-script>
     </div>
     <py-script> print("PLSES WORK")</py-script>
