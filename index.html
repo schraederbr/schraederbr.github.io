@@ -17,6 +17,27 @@
 </head>
 
 <body>
+    <!-- Testing authorization -->
+    <script>
+var client_id = 'CLIENT_ID';
+var redirect_uri = 'http://localhost:8000/';
+
+var state = 20;
+var scope = 'user-read-private user-read-email';
+
+var url = 'https://accounts.spotify.com/authorize';
+url += '?response_type=token';
+url += '&client_id=' + encodeURIComponent(client_id);
+url += '&scope=' + encodeURIComponent(scope);
+url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+url += '&state=' + encodeURIComponent(state);
+fetch(url)
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+
+
+    </script>
     <script>
 
         "use strict";
@@ -39,12 +60,29 @@
                 )
                 import mySpotipyWheel
                 print("Attempted Requesets")
-                await micropip.install('spotipy')
+                await micropip.install('wheels/spotipy-2.19.0-py3-none-any.whl')
                 import spotipy
+                
                 print("Attempted spotipy")
                 import requests
+                from requests import adapters
                 url = 'https://jsonplaceholder.typicode.com/posts'
                 response = requests.request("GET", url)
+                import spotipy
+                from spotipy.oauth2 import SpotifyOAuth
+                username = 'schraederbr'
+                client_id = "c36c7e2ef6e84235985b72415d66ab13"
+                client_secret = "a9c49ce1979943648ac35b9d5b39aa16"
+                redirect_uri = "https://schraederbr.github.io/"
+
+                scope = "user-library-read"
+
+                sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, username=username, scope=scope))
+
+                results = sp.current_user_saved_tracks()
+                for idx, item in enumerate(results['items']):
+                    track = item['track']
+                    print(idx, track['artists'][0]['name'], " – ", track['name'])
 
              `);
             pyodide.loadPackage('numpy')
