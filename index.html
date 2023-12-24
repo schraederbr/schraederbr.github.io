@@ -2,12 +2,25 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-    <iframe src="https://felipemanga.github.io/ProjectABE/?hex=https://github.com/schraederbr/Atomas-Arduboy/raw/main/a_atomas/build/a_atomas.ino.hex" width="480" height="760">
-</iframe>
+    <iframe src="https://felipemanga.github.io/ProjectABE/?hex=https://github.com/schraederbr/Atomas-Arduboy/raw/main/a_atomas/build/a_atomas.ino.hex" width="480" height="760"></iframe>
+    <button onclick="saveCurrentDate()" >Save Time</button>
+    <button onclick="updateAllTimeFields()">Update</button>
+    <div id="playerTables">
+        
+    </div>
+    <script src="main.js"></script>
+
+    <p>
+        New Player Name:
+        <input type="text" id="newPlayerName">
+        <button onclick="addPlayer(document.getElementById('newPlayerName').value)">Add Player</button>
+    </p>
+
 </body>
 
 </html>
+
