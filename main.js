@@ -313,13 +313,49 @@ function displayPlayer(player, key) {
     baseTable.appendChild(playerTd);
     baseTable.appendChild(buttonTd);
 
+    let qrDiv = document.createElement('div');
+    qrDiv.classList.add('qr-container');
+    let qr = qrcode(0, 'L');
+    qr.addData("https://schraederbr.github.io/?playerinfo=" + JSON.stringify(player));
+    qr.make();
+    qrDiv.innerHTML = qr.createImgTag(10);
+    
+    playerTd.appendChild(qrDiv);
     playerTablesDiv.appendChild(baseTable);
-
 }
 
 loadPlayers();
 updateAllTimeFields();
-const intervalId = setInterval(updateAllTimeFields, 1000);
+// const intervalId = setInterval(updateAllTimeFields, 1000);
+
+
+// This is stuff to add players from the URL
+function getNewPlayerInfo() {
+    const params = new URLSearchParams(window.location.search);
+    const playerInfo = params.get('playerinfo');
+    return playerInfo;
+}
+
+
+function addPlayerFromUrl() {
+    const playerInfo = getNewPlayerInfo();
+    if (playerInfo) {
+        console.log(playerInfo);
+        let parsedData = JSON.parse(playerInfo);
+
+        let statusEffects = parsedData.statusEffects.map(effectData => 
+            new StatusEffect(effectData.name, effectData.totalChange, effectData.maxHours, effectData.score, effectData.startTime, effectData.endTime)
+        );
+        
+        players.push(new CowPlayer(parsedData.name, parsedData.score, statusEffects));
+        savePlayers(players);
+        loadPlayers();
+    } 
+    
+}
+
+// Wait for the DOM to load before running the script
+document.addEventListener('DOMContentLoaded', addPlayerFromUrl);
 //May want to add this back. 
 //There is a problem with coming back to the game after closing, 
 //the score isn't properly lowered. 

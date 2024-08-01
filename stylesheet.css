@@ -34,3 +34,12 @@ button, input {
     color: red;
 }
 
+.qr-container {
+    width: 100%; /* Ensure container takes full width of its parent */
+}
+
+.qr-container img {
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+}
+
