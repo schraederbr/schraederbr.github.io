@@ -35,7 +35,7 @@ button, input {
 }
 
 .qr-container {
-    width: 100%; /* Ensure container takes full width of its parent */
+    width: 80%; /* Ensure container takes full width of its parent */
 }
 
 .qr-container img {

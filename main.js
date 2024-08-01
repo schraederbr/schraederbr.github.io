@@ -318,7 +318,7 @@ function displayPlayer(player, key) {
     let qr = qrcode(0, 'L');
     qr.addData("https://schraederbr.github.io/?playerinfo=" + JSON.stringify(player));
     qr.make();
-    qrDiv.innerHTML = qr.createImgTag(10);
+    qrDiv.innerHTML = qr.createImgTag(6);
     
     playerTd.appendChild(qrDiv);
     playerTablesDiv.appendChild(baseTable);
