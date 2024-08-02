@@ -1,12 +1,12 @@
 html {
-    font-size: 5vw;
+    font-size: 7vw;
     /* Black Background */
     background-color: black;
     /* White Text */
     color: white;
 }
 button, input {
-    font-size: 5vw; /* 25% of the table width */
+    font-size: 7vw; /* 25% of the table width */
     width: 100%;    
     background-color: black;
     color: white;
@@ -15,7 +15,7 @@ button, input {
 }
 .base-table {
     width: 100%; /* 50% of the table width */
-    font-size: 5vw;
+    /* font-size: 5vw; */
     outline: 5px solid white; /* Example of adding a 2px white outline */
     outline-offset: 2px; /* Optional, to adjust the space between the element and the outline */
     /* border: 1px solid black; */
