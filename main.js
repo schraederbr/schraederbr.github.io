@@ -313,14 +313,52 @@ function displayPlayer(player, key) {
     baseTable.appendChild(playerTd);
     baseTable.appendChild(buttonTd);
 
+    // let qrDiv = document.createElement('div');
+    // qrDiv.classList.add('qr-container');
+    // let qr = qrcode(0, 'L');
+    // //I might want to compress the qr code
+    // qr.addData("https://schraederbr.github.io/?playerinfo=" + JSON.stringify(player));
+    // qr.make();
+    // qrDiv.innerHTML = qr.createImgTag(6);
+    
+    // playerTd.appendChild(qrDiv);
+
+    // Create a button to display the QR code
+    let qrButton = document.createElement('button');
+    qrButton.innerText = 'Show QR Code';
+    qrButton.classList.add('qr-button');
+
+    // Create the div to hold the QR code
     let qrDiv = document.createElement('div');
     qrDiv.classList.add('qr-container');
+
+    // Generate the QR code
     let qr = qrcode(0, 'L');
+    // I might want to compress the QR code
     qr.addData("https://schraederbr.github.io/?playerinfo=" + JSON.stringify(player));
     qr.make();
+
+    // Initially hide the QR code
+    qrDiv.style.display = 'none';
+
+    // Add the QR code to the div
     qrDiv.innerHTML = qr.createImgTag(6);
-    
+
+    // Append the button and the QR code div to the playerTd
+    playerTd.appendChild(qrButton);
     playerTd.appendChild(qrDiv);
+
+    // Add event listener to toggle QR code visibility when the button is clicked
+    qrButton.addEventListener('click', () => {
+        if (qrDiv.style.display === 'none') {
+            qrDiv.style.display = 'block';
+            qrButton.innerText = 'Hide QR Code'; // Change button text
+        } else {
+            qrDiv.style.display = 'none';
+            qrButton.innerText = 'Show QR Code'; // Change button text
+        }
+    });
+
     playerTablesDiv.appendChild(baseTable);
 }
 

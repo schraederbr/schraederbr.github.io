@@ -16,9 +16,13 @@ button, input {
 .base-table {
     width: 100%; /* 50% of the table width */
     font-size: 5vw;
+    outline: 5px solid white; /* Example of adding a 2px white outline */
+    outline-offset: 2px; /* Optional, to adjust the space between the element and the outline */
     /* border: 1px solid black; */
     /* Padding */
-    /*padding: 5px 5px 5px 5px;  top, right, bottom, left */
+    /* padding: 5px 5px 5px 5px; */
+    margin-top: 40px;  
+    /*top, right, bottom, left  */
 
 }
 
